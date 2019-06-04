@@ -1,0 +1,27 @@
+{% extends 'base/default.html' %}
+
+{% block content %}
+    <p>ジャンル: 女性(すべて)</p>
+    <p>
+        {% if not prev_number == 0 %}
+            <input type="button" value="前のページ" onClick='window.open("{% url 'women_list' pk=prev_number %}")'>
+        {% endif %}
+        {{ page_number }}ページ目
+        <input type="button" value="次のページ" onClick='window.open("{% url 'women_list' pk=next_number %}")'>
+    </p>
+    {% for post in posts %}
+        <br>
+        <div>
+            <h2>{{ post.list_number_all }}:{{ post.title }}</h2>
+            <p><audio preload="metadata" controls>
+            <source src="{{ post.mp3_url }}" type="audio/mp3" />
+            再生ボタンを押してください</audio></p>
+            <p>{{ post.comment }}</p>
+            <p>
+                <input type="button" value="評価" onClick="window.open('../../star/{{ post.url_number }}/')">
+            </p>
+            <p><input type="button" value="投稿者リンク" onClick="window.open('')"></p>
+            <p><input type="button" value="元ページ" onClick="window.open('{{ post.link_url }}')"></p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <title>評価ページ</title>
+</head>
+
+<body>
+    <div>
+        <h3>{{ url_number }}</h3>
+        <p>現在の評価:{{ star }}</p>
+        <div>
+            <input type="button" value="0" onClick="location.href='{% url 'star_shine0' url_number %}'">
+            <input type="button" value="1" onClick="location.href='{% url 'star_shine1' url_number %}'">
+            <input type="button" value="2" onClick="location.href='{% url 'star_shine2' url_number %}'">
+            <input type="button" value="3" onClick="location.href='{% url 'star_shine3' url_number %}'">
+        </div>
+        <br>
+        <div>
+            <input type="button" value="評価開始" onClick="location.href='{% url 'new_star' url_number %}'">
+        </div>
+    </div>
+</body>
+
+</html>

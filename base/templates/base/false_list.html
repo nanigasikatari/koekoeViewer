@@ -1,0 +1,22 @@
+{% extends 'base/default.html' %}
+
+{% block content %}
+    <p>投稿 n ページ目</p>
+    {% for address in addresss %}
+        <div>
+            <br>
+            <p>{{ address.title }}</p>
+            <p><a href="">{{ address.contributor }}</a></p>
+            <p>{{ address.comment }}</p>
+            <input type="button" value="評価" onClick="window.open('{% url 'star' pk=addresss.pk %}')">
+            <p>現在の評価:{{ address.star }}</p>
+            <br>
+        </div>
+    {% endfor %}
+    <div>
+        <br>
+        <a href="{% url 'url_list_1' %}" target="_blank">1</a>
+        <a href="{% url 'url_list_2' %}" target="_blank">2</a>
+        <a href="{% url 'url_list_3' %}" target="_blank">3</a>
+    </div>
+{% endblock %}

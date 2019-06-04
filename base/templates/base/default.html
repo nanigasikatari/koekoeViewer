@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>koekoeViewer</title>
+    </head>
+    <body>
+        <div>
+            <h1><a href="/">koekoeViewer</a></h1>
+        </div>
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div>
+            <br>
+            <input type="button" value="リスト1" onClick="window.open('{% url 'url_list_1' %}')">
+            <input type="button" value="リスト2" onClick="window.open('{% url 'url_list_2' %}')">
+            <input type="button" value="リスト3" onClick="window.open('{% url 'url_list_3' %}')">
+        </div>
+    </body>
+</html>

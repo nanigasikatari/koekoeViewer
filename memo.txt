@@ -1,0 +1,7 @@
+
+def new_address(request, new_url, new_contributor, new_number, new_title, new_comment):
+    new_address = Address.objects.create(
+        url=new_url, contributor=new_contributor, number=new_number,
+        title=new_title, comment=new_comment, star=1)
+    context={"a":a}
+    return render(request, 'base/star.html', context)
