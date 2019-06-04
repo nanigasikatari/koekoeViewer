@@ -15,4 +15,5 @@ urlpatterns = [
     path('women/<int:pk>/', views.women_list, name='women_list'),
     path('test1/', views.test1, name='test1'),
     path('test2/<str:aaa>/<str:bbb>/', views.test2, name='test2'),
+    path('test3/', views.test3, name='test3'),
 ]

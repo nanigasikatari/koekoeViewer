@@ -111,3 +111,18 @@ def test1(request):
 
 def test2(request,aaa,bbb):
     return render(request, 'base/test2.html', {"aaa": aaa,"bbb":bbb})
+
+
+def test3(request):
+    url = "https://koe-koe.com/list.php?g=1&g2=0"
+    response = requests.get(url)
+    html = response.text.encode(response.encoding)
+    soup = BeautifulSoup(html, "lxml")
+    x = []
+    for y in soup.find_all("a")[10].get("title").lstrip("「").rstrip("」の投稿").split("(女性)/"):
+            x.append(y)
+    contributor = x[0]
+    title = x[1]
+
+    context = {"contributor": contributor, "title": title}
+    return render(request, 'base/test3.html', context)
