@@ -114,10 +114,10 @@ def test2(request,aaa,bbb):
 
 
 def test3(request):
-    url = "https://koe-koe.com/detail.php?n=177541"
+    url = "http://monopocket.jp/blog/html/1091/"
     response = requests.get(url)
     html = response.text.encode(response.encoding)
     soup = BeautifulSoup(html, "lxml")
-    title=soup.find_all("p")[9].string
+    title=soup.find_all("p")[1].string
     context = {"title": title}
     return render(request, 'base/test3.html', context)
