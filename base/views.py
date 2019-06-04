@@ -118,6 +118,8 @@ def test3(request):
     response = requests.get(url)
     html = response.text.encode(response.encoding)
     soup = BeautifulSoup(html, "lxml")
-    title=soup.find_all("p")[1].string
-    context = {"title": title}
+    title1=soup.find_all("p")[1].string
+    title2 = soup.find_all("p")[2].string
+    title3 = soup.find_all("p")[3].string
+    context = {"title1": title1, "title2": title2, "title3": title3 }
     return render(request, 'base/test3.html', context)
